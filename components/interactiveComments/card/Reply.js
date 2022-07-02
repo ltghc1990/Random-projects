@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
 
-const Reply = () => {
+const Reply = ({ toggleReply }) => {
+  console.log(toggleReply);
   return (
     <Button
       leftIcon={<ReplyIcon />}
@@ -10,8 +11,9 @@ const Reply = () => {
       _hover={{ color: "black" }}
       border="4"
       borderColor={"black"}
+      onClick={toggleReply}
     >
-      <span>Reply</span>
+      Reply
     </Button>
   );
 };

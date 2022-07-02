@@ -7,7 +7,7 @@ import Reply from "./Reply";
 
 // import a test image
 
-const Profile = () => {
+const ProfileUi = ({ toggleReply }) => {
   // takes in a compoent that replys
   // takes in name, date posted and picture
 
@@ -22,9 +22,9 @@ const Profile = () => {
           1 month ago
         </Box>
       </HStack>
-      <Reply />
+      <Reply toggleReply={toggleReply} />
     </Flex>
   );
 };
 
-export default Profile;
+export default ProfileUi;

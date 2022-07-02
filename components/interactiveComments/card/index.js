@@ -3,16 +3,16 @@ import { Box, Text, Flex } from "@chakra-ui/react";
 
 // components
 import Voting from "./Voting";
-import Profile from "./profile";
+import Profile from "./ProfileUi";
 
 // all the stuff goes in here
-const Card = () => {
+const Card = ({ toggleReply }) => {
   return (
     <Flex maxW="3xl" shadow="2xl" p="4" rounded="md" mx="auto" my="4">
       <Voting />
 
       <div>
-        <Profile />
+        <Profile toggleReply={toggleReply} />
         <Text>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis,
           placeat debitis! Incidunt ab nesciunt sunt ipsam illo reiciendis

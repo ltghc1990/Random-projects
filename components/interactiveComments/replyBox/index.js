@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Flex, Button } from "@chakra-ui/react";
+import { Flex, Button, HStack, FormControl } from "@chakra-ui/react";
 // components
 import ProfileImage from "../ProfileImage";
 import TextArea from "./TextArea";
 
-const ReplyBox = () => {
+const ReplyBox = ({ showReply, closeReply }) => {
   // if the reply icon is clicked show the replybox
 
   // input values
@@ -14,23 +14,39 @@ const ReplyBox = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(textareaValue);
+    closeReply();
   };
 
-  return (
-    <Flex maxW="3xl" shadow="2xl" p="4" rounded="md" mx="auto" my="4">
-      <ProfileImage />
+  if (!showReply) {
+    return <></>;
+  }
 
-      <form className="flex w-full outline" onSubmit={onSubmitHandler}>
+  return (
+    <form onSubmit={onSubmitHandler}>
+      <HStack
+        spacing="18px"
+        as={motion.div}
+        initial={{ opacity: 0, x: "-100px" }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 100 }}
+        maxW="3xl"
+        shadow="2xl"
+        p="4"
+        rounded="md"
+        mx="auto"
+        my="4"
+      >
+        <ProfileImage />
+
         <TextArea
           w="full"
           value={textareaValue}
           onChange={(e) => setTextareaValue(e.target.value)}
           placeholder="Add a comment..."
         />
-
-        <Button>Send</Button>
-      </form>
-    </Flex>
+        <button>Send</button>
+      </HStack>
+    </form>
   );
 };
 
