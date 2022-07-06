@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 
 const Reply = ({ toggleReply }) => {
-  console.log(toggleReply);
   return (
     <Button
       leftIcon={<ReplyIcon />}
